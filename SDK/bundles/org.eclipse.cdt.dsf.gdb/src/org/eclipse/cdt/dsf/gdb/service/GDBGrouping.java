@@ -259,7 +259,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 		}
 	}
 
-	//<CUSTOMISATION - ASHLING> Group Rename event
+	//<CUSTOMISATION - OpenHW Group> Group Rename event
 	protected class GroupRenameEvent extends AbstractDMEvent<IGroupDMContext> implements IGroupRenameEvent {
 		public GroupRenameEvent(IGroupDMContext context) {
 			super(context);
@@ -453,7 +453,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 		}
 
 		// Create a new group with the specified elements
-		//<CUSTOMISATION - ASHLING> Making the id and name different so as user could later edit the name
+		//<CUSTOMISATION - OpenHW Group> Making the id and name different so as user could later edit the name
 		String id = newGroupID();
 		MIUserGroupDMC newGroupDmc = new MIUserGroupDMC(getSession(), new IDMContext[] { fCommandControl.getContext() },
 				id);
@@ -611,7 +611,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 	public void getExecutionData(IGroupDMContext group, DataRequestMonitor<IGroupDMData> rm) {
 		if (group instanceof MIUserGroupDMC) {
 			MIUserGroupDMC groupDmc = (MIUserGroupDMC) group;
-			//<CUSTOMISATION - ASHLING> Making the id and name different so as user could later edit the name
+			//<CUSTOMISATION - OpenHW Group> Making the id and name different so as user could later edit the name
 			rm.done(new MIUserGroupDMData(groupDmc.getId(),
 					groupIDToName.getOrDefault(groupDmc.getId(), groupDmc.getId())));
 			//<CUSTOMISATION>
@@ -711,7 +711,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 				});
 	}
 
-	//<CUSTOMISATION - ASHLING> Making the id and name different so as user could later edit the name
+	//<CUSTOMISATION - OpenHW Group> Making the id and name different so as user could later edit the name
 	protected String newGroupID() {
 		String newGroupID = "Group-" + new Integer(fNewGroupId++).toString(); //$NON-NLS-1$
 		groupIDToName.put(newGroupID, newGroupID);
@@ -829,7 +829,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 		getSession().dispatchEvent(changeEvent, getProperties());
 	}
 
-	//<CUSTOMISATION - ASHLING> Rename function on Group
+	//<CUSTOMISATION - OpenHW Group> Rename function on Group
 	public void canRename(IExecutionDMContext context, DataRequestMonitor<Boolean> rm) {
 		if (context instanceof IGroupDMContext && !((MIUserGroupDMC) context).getId().contains(GROUP_ALL_NAME)) {
 			rm.done(true);

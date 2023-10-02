@@ -1,7 +1,7 @@
 package org.openhwgroup.corev.ide.wizard;
 
 /*
- *Contributors:Promodkumar (Ashling) - initial implementation
+ *Contributors:Promodkumar (OpenHW Group) - initial implementation
  */
 
 import org.eclipse.jface.viewers.IStructuredSelection;

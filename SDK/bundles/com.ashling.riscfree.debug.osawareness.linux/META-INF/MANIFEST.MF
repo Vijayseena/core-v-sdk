@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: com.ashling.riscfree.debug.osawareness.linux;singleton:=true
+Bundle-SymbolicName: org.openhwgroup.riscfree.debug.osawareness.linux;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.ashling.riscfree.debug.osawareness.linux.Activator
+Bundle-Activator: org.openhwgroup.riscfree.debug.osawareness.linux.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -15,16 +15,16 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.cdt.debug.ui,
  org.eclipse.cdt.debug.core,
  org.openhwgroup.corev.ide.debug.core;bundle-version="1.2.0",
- com.ashling.riscfree.debug.osawareness.ui;bundle-version="1.0.0",
+ org.openhwgroup.riscfree.debug.osawareness.ui;bundle-version="1.0.0",
  org.openhwgroup.corev.ide.debug.ease;bundle-version="1.0.0",
  org.openhwgroup.corev.ide.debug.multicore,
- com.ashling.riscfree.debug.osawareness;bundle-version="2.1.0",
+ org.openhwgroup.riscfree.debug.osawareness;bundle-version="2.1.0",
  org.eclipse.ui.workbench.texteditor,
  org.eclipse.cdt.debug.gdbjtag.core;bundle-version="10.5.200",
  org.eclipse.embedcdt.debug.gdbjtag.core;bundle-version="5.1.0",
  org.eclipse.embedcdt.core;bundle-version="6.2.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Automatic-Module-Name: com.ashling.riscfree.debug.osawareness.linux
+Automatic-Module-Name: org.openhwgroup.riscfree.debug.osawareness.linux
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Import-Package: org.eclipse.core.expressions

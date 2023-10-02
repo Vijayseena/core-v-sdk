@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/com.ashling.riscfree.debug.opxd.emf/src" modelPluginID="com.ashling.riscfree.debug.opxd.emf"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.openhwgroup.riscfree.debug.opxd.emf/src" modelPluginID="org.openhwgroup.riscfree.debug.opxd.emf"
     modelName="Devices" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.xsd.ecore.importer" complianceLevel="5.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.xsd.ecore.importer">
     <details key="createMap" value="true"/>
   </genAnnotations>
-  <foreignModel>file:/C:/Users/Ashling/Downloads/devices.xsd</foreignModel>
+  <foreignModel>file:/C:/Users/OpenHWGroup/Downloads/devices.xsd</foreignModel>
   <genPackages prefix="Devices" resource="XML" disposableProviderFactory="true" ecorePackage="Devices.ecore#/">
     <genClasses ecoreClass="Devices.ecore#//ARCEmulatorType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Devices.ecore#//ARCEmulatorType/targetVoltage"/>
     </genClasses>
-    <genClasses ecoreClass="Devices.ecore#//AshlingProcessorDataBaseType">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Devices.ecore#//AshlingProcessorDataBaseType/processor"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//AshlingProcessorDataBaseType/date"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//AshlingProcessorDataBaseType/family"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//AshlingProcessorDataBaseType/subSet"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//AshlingProcessorDataBaseType/version"/>
+    <genClasses ecoreClass="Devices.ecore#//OpenHWGroupProcessorDataBaseType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Devices.ecore#//OpenHWGroupProcessorDataBaseType/processor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//OpenHWGroupProcessorDataBaseType/date"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//OpenHWGroupProcessorDataBaseType/family"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//OpenHWGroupProcessorDataBaseType/subSet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//OpenHWGroupProcessorDataBaseType/version"/>
     </genClasses>
     <genClasses ecoreClass="Devices.ecore#//CoreInfoType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Devices.ecore#//CoreInfoType/core"/>
@@ -56,7 +56,7 @@
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//DocumentRoot/mixed"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Devices.ecore#//DocumentRoot/xMLNSPrefixMap"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Devices.ecore#//DocumentRoot/xSISchemaLocation"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Devices.ecore#//DocumentRoot/ashlingProcessorDataBase"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Devices.ecore#//DocumentRoot/OpenHWGroupProcessorDataBase"/>
     </genClasses>
     <genClasses ecoreClass="Devices.ecore#//JTAGDPType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Devices.ecore#//JTAGDPType/refid"/>

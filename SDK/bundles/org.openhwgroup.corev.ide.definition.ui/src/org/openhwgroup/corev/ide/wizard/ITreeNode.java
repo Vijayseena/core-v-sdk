@@ -2,7 +2,7 @@ package org.openhwgroup.corev.ide.wizard;
 
 import java.util.List;
 /*
- *Contributors:Promodkumar (Ashling) - initial implementation
+ *Contributors:Promodkumar (OpenHW Group) - initial implementation
  */
 public interface ITreeNode
 {

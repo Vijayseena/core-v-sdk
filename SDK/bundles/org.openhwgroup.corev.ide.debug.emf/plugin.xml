@@ -10,7 +10,7 @@
       <!-- @generated devices -->
       <package
             uri="file:/C:/PK/devices.xsd"
-            class="com.ashling.riscfree.debug.opxd.emf.devices.devicesPackage"
+            class="org.openhwgroup.riscfree.debug.opxd.emf.devices.devicesPackage"
             genModel="model/devices.genmodel"/>
    </extension>
 
@@ -18,7 +18,7 @@
       <!-- @generated devices -->
       <parser
             type="devices"
-            class="com.ashling.riscfree.debug.opxd.emf.devices.util.devicesResourceFactoryImpl"/>
+            class="org.openhwgroup.riscfree.debug.opxd.emf.devices.util.devicesResourceFactoryImpl"/>
    </extension>
 
 </plugin>

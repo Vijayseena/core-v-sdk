@@ -7,7 +7,7 @@ import org.eclipse.ui.internal.wizards.datatransfer.ArchiveFileManipulations;
 import org.openhwgroup.corev.ide.wizard.util.LabelsHandle;
 
 /*
- *Contributors:Promodkumar (Ashling) - initial implementation
+ *Contributors:Promodkumar (OpenHW Group) - initial implementation
  */
 public class FolderNode extends TreeNode {
 	private File fFolder; /* actual data object */

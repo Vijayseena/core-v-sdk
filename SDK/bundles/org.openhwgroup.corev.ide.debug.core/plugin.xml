@@ -4,13 +4,13 @@
    <extension
          point="org.eclipse.ui.startup">
       <startup
-            class="com.ashling.riscfree.debug.opxd.core.Startup">
+            class="org.openhwgroup.riscfree.debug.opxd.core.Startup">
       </startup>
    </extension>
    
    
    <extension
-         id="com.ashling.comrv.marker"
+         id="org.openhwgroup.comrv.marker"
          point="org.eclipse.core.resources.markers">
       <super
             type="org.eclipse.core.resources.marker">
@@ -27,24 +27,24 @@
        <extension
          point="org.eclipse.ui.editors.annotationTypes">
       <type
-            markerType="com.ashling.comrv.marker"
-            name="com.ashling.comrv.marker">
+            markerType="org.openhwgroup.comrv.marker"
+            name="org.openhwgroup.comrv.marker">
       </type>
    </extension>
    
       <extension
          point="org.eclipse.ui.editors.markerAnnotationSpecification">
       <specification
-            annotationType="com.ashling.comrv.marker"
-            colorPreferenceKey="com.ashling.comrv.color"
+            annotationType="org.openhwgroup.comrv.marker"
+            colorPreferenceKey="org.openhwgroup.comrv.color"
             colorPreferenceValue="192,255,192"
             highlightPreferenceKey="comrv_highlight"
             highlightPreferenceValue="true"
             contributesToHeader="false"
             includeOnPreferencePage="true"
             label="ComRV Overlay Marker"
-            overviewRulerPreferenceKey="com.ashling.comrv"
-            textPreferenceKey="com.ashling.comrv"
+            overviewRulerPreferenceKey="org.openhwgroup.comrv"
+            textPreferenceKey="org.openhwgroup.comrv"
             textPreferenceValue="true"
             textStylePreferenceKey="comrv_stylePreferences"  
             textStylePreferenceValue="BOX"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Devices" nsURI="file:/C:/Users/Ashling/Downloads/devices.xsd"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Devices" nsURI="file:/C:/Users/OpenHWGroup/Downloads/devices.xsd"
     nsPrefix="Devices">
   <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
     <details key="qualified" value="false"/>
@@ -19,9 +19,9 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AshlingProcessorDataBaseType">
+  <eClassifiers xsi:type="ecore:EClass" name="OpenHWGroupProcessorDataBaseType">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
-      <details key="name" value="AshlingProcessorDataBase_._type"/>
+      <details key="name" value="OpenHWGroupProcessorDataBase_._type"/>
       <details key="kind" value="elementOnly"/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processor" lowerBound="1"
@@ -311,12 +311,12 @@
         <details key="name" value="xsi:schemaLocation"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ashlingProcessorDataBase"
-        upperBound="-2" eType="#//AshlingProcessorDataBaseType" volatile="true" transient="true"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="openHWGroupProcessorDataBase"
+        upperBound="-2" eType="#//OpenHWGroupProcessorDataBaseType" volatile="true" transient="true"
         derived="true" containment="true" resolveProxies="false">
       <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
         <details key="kind" value="element"/>
-        <details key="name" value="AshlingProcessorDataBase"/>
+        <details key="name" value="OpenHWGroupProcessorDataBase"/>
         <details key="namespace" value="##targetNamespace"/>
       </eAnnotations>
     </eStructuralFeatures>

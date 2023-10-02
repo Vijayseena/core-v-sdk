@@ -42,7 +42,7 @@ public class MITargetSelect extends MICommand<MIInfo> {
 		super(ctx, "-target-select", new String[] { extended ? "extended-remote" : "remote", serialDevice }); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 	}
 
-	//<CUSTOMISATION> - ASHLING - git-lab#228 to fix core file path issue if there is a space in the file
+	//<CUSTOMISATION> - OpenHW Group - git-lab#228 to fix core file path issue if there is a space in the file
 	//TODO: Need to revert once RISCV gdb fixes the issue
 	public MITargetSelect(IDMContext ctx, String coreFile) {
 		super(ctx, "-target-select core " + coreFile, null, null); //$NON-NLS-1$

@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="com.ashling.riscfree.debug.osawareness" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.openhwgroup.riscfree.debug.osawareness" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="com.ashling.riscfree.debug.osawareness" id="OSInfoProvider" name="OS Info Provider"/>
+         <meta.schema plugin="org.openhwgroup.riscfree.debug.osawareness" id="OSInfoProvider" name="OS Info Provider"/>
       </appinfo>
       <documentation>
          To add an OS to OS Awareness tab in Launch Configuration.

@@ -1156,7 +1156,7 @@ public class GDBProcesses_7_0 extends AbstractDsfService
 									// We must indicate and empty id by using null
 									if (id.isEmpty())
 										id = null;
-									//<CUSTOMISATION-ASHLING>This is a temporary hack to get rid of git-lab#141/ https://bugs.eclipse.org/bugs/show_bug.cgi?id=339005
+									//<CUSTOMISATION-OpenHW Group>This is a temporary hack to get rid of git-lab#141/ https://bugs.eclipse.org/bugs/show_bug.cgi?id=339005
 									threadData = createThreadDMData(thread);//new MIThreadDMData("", id); //$NON-NLS-1$
 									//</CUSTOMISATION>
 								}
@@ -1178,7 +1178,7 @@ public class GDBProcesses_7_0 extends AbstractDsfService
 	}
 
 	/**
-	 * <CUSTOMISATION - ASHLING>
+	 * <CUSTOMISATION - OpenHW Group>
 	 */
 	private IGdbThreadDMData createThreadDMData(MIThread thread) {
 		String id = ""; //$NON-NLS-1$
@@ -1525,7 +1525,7 @@ public class GDBProcesses_7_0 extends AbstractDsfService
 					});
 		} else {
 
-			final DataRequestMonitor<IMIContainerDMContext[]> addExitedDRM = new ImmediateDataRequestMonitor<IMIContainerDMContext[]>(
+			final DataRequestMonitor<IMIContainerDMContext[]> addExitedDRM = new ImmediateDataRequestMonitor<>(
 					rm) {
 				@Override
 				protected void handleCompleted() {

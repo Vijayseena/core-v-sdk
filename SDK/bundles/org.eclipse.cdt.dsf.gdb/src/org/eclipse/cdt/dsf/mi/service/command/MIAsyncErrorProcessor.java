@@ -65,7 +65,7 @@ public class MIAsyncErrorProcessor implements IEventProcessor {
 	private Map<IExecutionDMContext, Integer> fRunCommands = new HashMap<>();
 
 	public MIAsyncErrorProcessor(ICommandControlService commandControl) {
-		//<CUSTOMISATION-ASHLING>Suspend Operation Timeout git-lab#900
+		//<CUSTOMISATION-OpenHW Group>Suspend Operation Timeout git-lab#900
 		this(commandControl, null);
 		//<CUSTOMISATION>
 	}
@@ -73,7 +73,7 @@ public class MIAsyncErrorProcessor implements IEventProcessor {
 	public MIAsyncErrorProcessor(ICommandControlService commandControl, DsfServicesTracker servicesTracker) {
 		super();
 		fCommandControl = commandControl;
-		//<CUSTOMISATION-ASHLING>Suspend Operation Timeout git-lab#900
+		//<CUSTOMISATION-OpenHW Group>Suspend Operation Timeout git-lab#900
 		fServicesTracker = servicesTracker;
 		//<CUSTOMISATION>
 		fCommandControl.addCommandListener(this);
@@ -108,7 +108,7 @@ public class MIAsyncErrorProcessor implements IEventProcessor {
 		if (token.getCommand() instanceof MICommand<?> && result instanceof MIInfo && ((MIInfo) result).isRunning()) {
 			IDMContext ctx = ((MICommand<MIInfo>) token.getCommand()).getContext();
 			IExecutionDMContext execDMCtx = DMContexts.getAncestorOfType(ctx, IExecutionDMContext.class);
-			//<CUSTOMISATION-ASHLING>Suspend Operation Timeout git-lab#900
+			//<CUSTOMISATION-OpenHW Group>Suspend Operation Timeout git-lab#900
 			// Convert the ICommandControlDMContext to corresponding IContainerDMContext,
 			// so as to handle the upcoming error events properly
 			ICommandControlDMContext cmdCtrlDMCtx = DMContexts.getAncestorOfType(ctx, ICommandControlDMContext.class);

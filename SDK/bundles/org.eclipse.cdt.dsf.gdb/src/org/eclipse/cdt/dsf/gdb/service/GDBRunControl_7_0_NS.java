@@ -868,7 +868,7 @@ public class GDBRunControl_7_0_NS extends AbstractDsfService
 		if (!doCanResume(context)) {
 			rm.done(new Status(IStatus.ERROR, GdbPlugin.PLUGIN_ID, INVALID_STATE,
 					"Given context: " + context + ", is already running.", null)); //$NON-NLS-1$ //$NON-NLS-2$
-			//<CUSTOMISATION - ASHLING> Removed additional call to Requestmonitor done method
+			//<CUSTOMISATION - OpenHW Group> Removed additional call to Requestmonitor done method
 			//which will raise IllegalState exception
 			return;
 		}
@@ -1879,7 +1879,7 @@ public class GDBRunControl_7_0_NS extends AbstractDsfService
 	 */
 	@DsfServiceEventHandler
 	public void eventDispatched(final MIStoppedEvent e) {
-		//<CUSTOMISATION-ASHLING>Resend the events at the thread context level.
+		//<CUSTOMISATION-OpenHW Group>Resend the events at the thread context level.
 		// Since the upcoming listeners are handling it at the thread level git-lab#900
 		if (e.getDMContext() instanceof IMIContainerDMContext && e instanceof MIErrorEvent) {
 			IMIContainerDMContext containerCtx = (IMIContainerDMContext) e.getDMContext();

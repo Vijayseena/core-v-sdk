@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.openhwgroup.corev.ide.debug.core;singleton:=true
 Bundle-Version: 1.5.0.qualifier
-Bundle-Activator: com.ashling.riscfree.debug.opxd.core.Activator
+Bundle-Activator: org.openhwgroup.riscfree.debug.opxd.core.Activator
 Bundle-Vendor: %Bundle-Vendor
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources,
@@ -27,23 +27,23 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.workbench.texteditor,
  com.google.guava;bundle-version="27.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Automatic-Module-Name: com.ashling.riscfree.debug.opxd.core
+Automatic-Module-Name: org.openhwgroup.riscfree.debug.opxd.core
 Bundle-ActivationPolicy: lazy
 Bundle-Localization: plugin
 Export-Package: 
- com.ashling.riscfree.debug.opxd.core,
- com.ashling.riscfree.debug.opxd.core.comrv,
- com.ashling.riscfree.debug.opxd.core.dsf,
- com.ashling.riscfree.debug.opxd.core.dsf.disassembly,
- com.ashling.riscfree.debug.opxd.core.dsf.memory,
- com.ashling.riscfree.debug.opxd.core.events,
- com.ashling.riscfree.debug.opxd.core.preferences,
- com.ashling.riscfree.debug.opxd.core.probe.scan,
- com.ashling.riscfree.debug.opxd.core.scanchain,
- com.ashling.riscfree.debug.opxd.core.utils,
- com.ashling.riscfree.debug.opxd.services,
- com.ashling.riscfree.opxd.core.dsf.gdbhandlers
-Import-Package: com.ashling.riscfree.debug.multicore.util,
+ org.openhwgroup.riscfree.debug.opxd.core,
+ org.openhwgroup.riscfree.debug.opxd.core.comrv,
+ org.openhwgroup.riscfree.debug.opxd.core.dsf,
+ org.openhwgroup.riscfree.debug.opxd.core.dsf.disassembly,
+ org.openhwgroup.riscfree.debug.opxd.core.dsf.memory,
+ org.openhwgroup.riscfree.debug.opxd.core.events,
+ org.openhwgroup.riscfree.debug.opxd.core.preferences,
+ org.openhwgroup.riscfree.debug.opxd.core.probe.scan,
+ org.openhwgroup.riscfree.debug.opxd.core.scanchain,
+ org.openhwgroup.riscfree.debug.opxd.core.utils,
+ org.openhwgroup.riscfree.debug.opxd.services,
+ org.openhwgroup.riscfree.opxd.core.dsf.gdbhandlers
+Import-Package: org.openhwgroup.riscfree.debug.multicore.util,
  org.eclipse.debug.internal.ui,
  org.eclipse.debug.internal.ui.launchConfigurations,
  org.eclipse.debug.ui.actions

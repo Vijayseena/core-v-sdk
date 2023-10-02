@@ -469,7 +469,7 @@ public class CommandFactory {
 	}
 
 	public ICommand<MIBreakListInfo> createMIBreakList(IBreakpointsTargetDMContext ctx) {
-		//<CUSTOMISATION> ASHLING - Ignoring context since there is a gdb issue with "-break-list --thread-group i1", thread selection automatically moves to halted thread
+		//<CUSTOMISATION> OpenHW Group - Ignoring context since there is a gdb issue with "-break-list --thread-group i1", thread selection automatically moves to halted thread
 		//git-lab riscfree-ui#296
 		return new MIBreakList(null);
 		//</CUSTOMISATION>

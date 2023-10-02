@@ -3,8 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: RiscFree GDB Module
 Bundle-SymbolicName: org.openhwgroup.corev.ide.debug.ease;singleton:=true
 Bundle-Version: 3.0.1.qualifier
-Bundle-Activator: com.ashling.riscfree.debug.ease.Activator
-Bundle-Vendor: Ashling
+Bundle-Activator: org.openhwgroup.riscfree.debug.ease.Activator
+Bundle-Vendor: OpenHW Group
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ease,
@@ -16,9 +16,9 @@ Require-Bundle: org.eclipse.ui,
  org.openhwgroup.corev.ide.debug.emf,
  org.eclipse.cdt.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Automatic-Module-Name: com.ashling.riscfree.debug.ease.module
+Automatic-Module-Name: org.openhwgroup.riscfree.debug.ease.module
 Bundle-ActivationPolicy: lazy
-Export-Package: com.ashling.riscfree.debug.ease.dsf,
- com.ashling.riscfree.debug.ease.module,
- com.ashling.riscfree.debug.ease.ui
+Export-Package: org.openhwgroup.riscfree.debug.ease.dsf,
+ org.openhwgroup.riscfree.debug.ease.module,
+ org.openhwgroup.riscfree.debug.ease.ui
 Import-Package: org.eclipse.cdt.utils

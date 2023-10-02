@@ -20,7 +20,7 @@
  *     Marc Khouzam (Ericsson) - Support for dynamic printf (Bug 400628)
  *     Alvaro Sanchez-Leon (Ericsson) - Sometimes breakpoints set and immediately deleted when debugging with GDB (Bug 442394)
  *     Alvaro Sanchez-Leon (Ericsson) - Breakpoint Enable does not work after restarting the application (Bug 456959)
- *     Ashling
+ *     OpenHW Group
  *******************************************************************************/
 
 package org.eclipse.cdt.dsf.mi.service;
@@ -119,8 +119,8 @@ import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.model.IBreakpoint;
 import org.eclipse.debug.ui.DebugUITools;
 import org.eclipse.swt.widgets.Display;
+import org.openhwgroup.riscfree.debug.multicore.model.IMulticoreLaunch;
 import org.osgi.framework.BundleContext;
-import com.ashling.riscfree.debug.multicore.model.IMulticoreLaunch;
 
 /**
  * Breakpoint service interface.  The breakpoint service tracks CDT breakpoint
@@ -1310,7 +1310,7 @@ public class MIBreakpointsManager extends AbstractDsfService
 	@Override
 	public void breakpointAdded(final IBreakpoint breakpoint) {
 		/*
-		 * <CUSTOMIZATION ASHLING>
+		 * <CUSTOMIZATION OpenHW Group>
 		 *TODO:Need to change the Display.getDefault().asyncExec call because its accessing a UI plugin component from a
 		 *Non-UI plugin
 		 */
@@ -1352,11 +1352,11 @@ public class MIBreakpointsManager extends AbstractDsfService
 
 			}
 		});
-		// </CUSTOMIZATION ASHLING>
+		// </CUSTOMIZATION OpenHW Group>
 	}
-	
+
 	/*
-	 * <CUSTOMIZATION ASHLING>
+	 * <CUSTOMIZATION OpenHW Group>
 	 *
 	 *
 	 *  ***Don't call this function from non UI thread, it may cause UI hang***
@@ -1407,7 +1407,7 @@ public class MIBreakpointsManager extends AbstractDsfService
 				IGdbDebugPreferenceConstants.PREF_CONTEXT_BP_FILTER, false, null);
 	}
 
-	// </CUSTOMIZATION ASHLING>
+	// </CUSTOMIZATION OpenHW Group>
 	/**
 	 * Extension of {@link #breakpointAdded(IBreakpoint)}
 	 *
@@ -1460,7 +1460,7 @@ public class MIBreakpointsManager extends AbstractDsfService
 													IContainerDMContext containerDmc = DMContexts.getAncestorOfType(dmc,
 															IContainerDMContext.class);
 													assert containerDmc != null;
-													// <CUSTOMIZATION ASHLING> - Checking the context breakpoint filter in preference is selected or not
+													// <CUSTOMIZATION OpenHW Group> - Checking the context breakpoint filter in preference is selected or not
 													if (getPreferenceBPFilter()) {
 														filterContextSpecificThreads(filterExtension, containerDmc);
 													} else if (filterExtension.getThreadFilters(containerDmc) == null) {
@@ -1473,7 +1473,7 @@ public class MIBreakpointsManager extends AbstractDsfService
 														// Bug 433329
 														filterExtension.setTargetFilter(containerDmc);
 													}
-													// <CUSTOMIZATION ASHLING>
+													// <CUSTOMIZATION OpenHW Group>
 												}
 											} catch (CoreException e1) {
 												// Error setting target filter, just skip altogether

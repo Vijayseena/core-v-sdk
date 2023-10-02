@@ -18,31 +18,14 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="org.eclipse.ui.ide.workbench"
-            name="CORE-V™-SDK">
-            <property
-               name="aboutImage"
-               value="images\ohw_lg.png">
-         </property>
+            name="CORE-V-SDK">
          <property
          		name="introBrandingImage" 
          		value="product:images/ohw64.png">
          </property>
          <property
                name="appName"
-               value="OpenHW CORE-V™-SDK">
-         </property>
-         <property
-               name="startupForegroundColor"
-               value="c1bc1f"/>
-         <property
-               name="startupMessageRect"
-               value="7,265,320,20"/>
-         <property
-               name="startupProgressRect"
-               value="2,290,448,10"/>
-         <property
-               name="aboutText"
-               value="CORE-V™-SDK &#x0A;v0.0.0.4 21-Oct-2022 &#x0A;&#x0A;Developed by Ashling (https://www.ashling.com/ ), Embecosm (https://www.embecosm.com/ ) and the OpenHW™ group (https://www.openhwgroup.org/ ) including contributions from ArSysOp and others...&#x0A;&#x0A;CORE-V™-SDK would not be possible without the following fantastic open-source software. Hat tip to all:&#x0A;-	Embecosm CORE-V GCC Toolchain :&#x0A;https://www.embecosm.com/resources/tool-chain-downloads/#corev&#x0A;-	Eclipse including Eclipse CDT: &#x0A;https://www.eclipse.org/eclipse and https://projects.eclipse.org/projects/tools.cdt&#x0A;- Eclipse Embedded CDT:&#x0A;https://eclipse-embed-cdt.github.io/ &#x0A;-	OpenJDK and Eclipse OpenJ9:&#x0A;https://openjdk.java.net/ &#x0A;-	RISC-V QEMU:&#x0A;https://www.qemu.org/">
+               value="CORE-V-SDK">
          </property>
          <property
                name="windowImages"

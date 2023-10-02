@@ -16,7 +16,7 @@
  *     Anton Gorenkov - A preference to use RTTI for variable types determination (Bug 377536)
  *     Marc Khouzam (Ericsson) - Add preference for aggressive breakpoint filtering (Bug 360735)
  *     Intel Corporation - Added Reverse Debugging BTrace support
- *     Ashling
+ *     OpenHW Group
  *******************************************************************************/
 package org.eclipse.cdt.dsf.gdb.internal;
 

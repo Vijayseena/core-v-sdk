@@ -322,7 +322,7 @@ public class GDBRegisters extends MIRegisters implements IRegisters2 {
 
 	@Override
 	public void getRegisterGroups(final IDMContext ctx, final DataRequestMonitor<IRegisterGroupDMContext[]> rm) {
-		//<CUSTOMISATION - ASHLING> This is for supporting the QEMU, for which ashling overridden register service is not used.
+		//<CUSTOMISATION - OpenHW Group> This is for supporting the QEMU, for which OpenHW Group overridden register service is not used.
 		if (DMContexts.getAncestorOfType(ctx, IGroupDMContext.class) != null) {
 			IStatus status = new Status(IStatus.ERROR, GdbPlugin.PLUGIN_ID, INVALID_HANDLE,
 					"For group contexts, no register groups are present", null); //$NON-NLS-1$

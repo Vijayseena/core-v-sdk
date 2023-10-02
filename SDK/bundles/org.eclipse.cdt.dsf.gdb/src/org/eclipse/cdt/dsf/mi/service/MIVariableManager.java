@@ -1530,7 +1530,7 @@ public class MIVariableManager implements ICommandControl {
 									}
 								}
 
-								final DataRequestMonitor<ChildFullExpressionInfo> childPathRm = new DataRequestMonitor<ChildFullExpressionInfo>(
+								final DataRequestMonitor<ChildFullExpressionInfo> childPathRm = new DataRequestMonitor<>(
 										fSession.getExecutor(), countingRm) {
 									@Override
 									protected void handleSuccess() {
@@ -2025,13 +2025,13 @@ public class MIVariableManager implements ICommandControl {
 				return;
 			}
 
-			/*ASHLING CUSTOMIZATION - handling union data structure in register view
+			/*OpenHW Group CUSTOMIZATION - handling union data structure in register view
 			 *If the data structure is union the value of the getType() will be like "union structureName"
 			 */
 			if (getNumChildrenHint() > 0 && getType().startsWith("union ")) { //$NON-NLS-1$
 				handleUnion(value, rm);
 			}
-			//ASHLING CUSTOMIZATION - handling union data structure in register view
+			//OpenHW Group CUSTOMIZATION - handling union data structure in register view
 
 			else {
 
@@ -2061,7 +2061,7 @@ public class MIVariableManager implements ICommandControl {
 			}
 		}
 
-		/* ASHLING CUSTOMIZATION - Method to handle union data structure in register view
+		/* OpenHW Group CUSTOMIZATION - Method to handle union data structure in register view
 		 *
 		 * Here we are getting value in the format "{float = 0, double = 0}", So we are splitting the value and getting the child name to verify the child name from the gdb
 		 * Initially we are calling -var-list-children var command to  return a list of the children of the specified variable object and create variable objects for them
@@ -2184,7 +2184,7 @@ public class MIVariableManager implements ICommandControl {
 					&& !set.stream().filter(k -> !children.contains(k)).findAny().isPresent();
 		}
 
-		// ASHLING CUSTOMIZATION - Method to handle union data structure in register view
+		// OpenHW Group CUSTOMIZATION - Method to handle union data structure in register view
 
 		private boolean isAccessQualifier(String str) {
 			return str.equals("private") || str.equals("public") || str.equals("protected"); //$NON-NLS-1$  //$NON-NLS-2$  //$NON-NLS-3$

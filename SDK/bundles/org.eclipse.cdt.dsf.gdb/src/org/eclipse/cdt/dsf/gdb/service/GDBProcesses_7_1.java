@@ -134,7 +134,7 @@ public class GDBProcesses_7_1 extends GDBProcesses_7_0 {
 
 	@Override
 	public void getExecutionData(final IThreadDMContext dmc, final DataRequestMonitor<IThreadDMData> rm) {
-		//<CUSTOMISATION-ASHLING>This is a temporary hack to get rid of git-lab#141/ https://bugs.eclipse.org/bugs/show_bug.cgi?id=339005
+		//<CUSTOMISATION-OpenHW Group>This is a temporary hack to get rid of git-lab#141/ https://bugs.eclipse.org/bugs/show_bug.cgi?id=339005
 		if (getSession().getExecutor().isInExecutorThread()) {
 			super.getExecutionData(dmc, rm);
 			return;

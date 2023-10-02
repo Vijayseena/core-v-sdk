@@ -40,30 +40,31 @@ public interface IGDBGrouping extends IExecutionContextTranslator {
 		String getName();
 	}
 
-	/** 
+	/**
 	 * Indicates that a new group has been created.
 	 */
 	interface IGroupCreatedEvent extends IDMEvent<IGroupDMContext> {
 	}
 
-	/** 
+	/**
 	 * Indicates that a group has been deleted.
 	 */
 	interface IGroupDeletedEvent extends IDMEvent<IGroupDMContext> {
 	}
 
-	/** 
-	 * Indicates that a group's content has been modified. 
+	/**
+	 * Indicates that a group's content has been modified.
 	 */
 	interface IGroupChangedEvent extends IDMEvent<IGroupDMContext> {
 	}
 
-	//<CUSTOMISATION - ASHLING> Group Rename event
+	//<CUSTOMISATION - OpenHW Group> Group Rename event
 	/**
 	 * Indicates that a group's name has been modified.
 	 */
 	interface IGroupRenameEvent extends IDMEvent<IGroupDMContext> {
 	}
+
 	//<CUSTOMISATION>
 	/**
 	 * Returns the group execution data that corresponds to a group DM context
@@ -75,7 +76,7 @@ public interface IGDBGrouping extends IExecutionContextTranslator {
 
 	/**
 	 * Returns the execution contexts for the given container after the translation.
-	 * 
+	 *
 	 * @param containerDmc The container for which the execution contexts will be returned.
 	 *                     If null, the top-level execution contexts will be returned.
 	 * @param rm The request monitor
@@ -85,7 +86,7 @@ public interface IGDBGrouping extends IExecutionContextTranslator {
 
 	/**
 	 * Returns contexts for all groups that contains the specified execution context.
-	 * 
+	 *
 	 *   @param wantedCtx The execution context that is looked-for
 	 *   @param recurse whether to search deeper than the first group level
 	 *   @param rm The request monitor
@@ -93,7 +94,7 @@ public interface IGDBGrouping extends IExecutionContextTranslator {
 	 */
 	void getGroups(IExecutionDMContext wantedCtx, boolean recurse, DataRequestMonitor<IGroupDMContext[]> rm);
 
-	/** 
+	/**
 	 * Returns whether grouping is active (i.e. at least one group exists)
 	 */
 	void isGroupingEnabled(DataRequestMonitor<Boolean> rm);
