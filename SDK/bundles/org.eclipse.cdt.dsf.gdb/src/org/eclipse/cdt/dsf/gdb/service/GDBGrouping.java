@@ -431,6 +431,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 	 * Creates a group from an array of IExecutionDMContext and returns
 	 * a corresponding IGroupDMContext.
 	 */
+	@Override
 	public void group(IExecutionDMContext[] contexts, DataRequestMonitor<IContainerDMContext> rm) {
 		if (!doCanGroup(contexts)) {
 			rm.done(new Status(IStatus.ERROR, GdbPlugin.PLUGIN_ID, IDsfStatusConstants.INTERNAL_ERROR,
@@ -830,6 +831,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 	}
 
 	//<CUSTOMISATION - OpenHW Group> Rename function on Group
+	@Override
 	public void canRename(IExecutionDMContext context, DataRequestMonitor<Boolean> rm) {
 		if (context instanceof IGroupDMContext && !((MIUserGroupDMC) context).getId().contains(GROUP_ALL_NAME)) {
 			rm.done(true);
@@ -838,6 +840,7 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 		rm.done(false);
 	}
 
+	@Override
 	public void rename(IExecutionDMContext context, String newGroupName, RequestMonitor rm) {
 		if (context instanceof IGroupDMContext && !((MIUserGroupDMC) context).getId().contains(GROUP_ALL_NAME)
 				&& !GROUP_ALL_NAME.equalsIgnoreCase(newGroupName)) {
@@ -853,10 +856,4 @@ public class GDBGrouping extends AbstractDsfService implements IGDBGrouping, ICa
 		rm.done();
 	}
 	//<CUSTOMISATION>
-
-	@Override
-	public void group(IExecutionDMContext[] contexts, RequestMonitor requestMonitor) {
-		// TODO Auto-generated method stub
-
-	}
 }

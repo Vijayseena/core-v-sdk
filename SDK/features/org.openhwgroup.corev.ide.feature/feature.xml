@@ -86,63 +86,63 @@
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.osawareness"
+         id="org.openhwgroup.riscfree.debug.osawareness"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.osawareness.freertos"
+         id="org.openhwgroup.riscfree.debug.osawareness.freertos"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.osawareness.linux"
+         id="org.openhwgroup.riscfree.debug.osawareness.linux"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.osawareness.ui"
+         id="org.openhwgroup.riscfree.debug.osawareness.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.ease"
+         id="org.openhwgroup.riscfree.debug.ease"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.multicore"
+         id="org.openhwgroup.riscfree.debug.multicore"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.opxd.core"
+         id="org.openhwgroup.riscfree.debug.opxd.core"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.debug.opxd.emf"
+         id="org.openhwgroup.riscfree.debug.opxd.emf"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.ashling.riscfree.globalvariable.view"
+         id="org.openhwgroup.riscfree.globalvariable.view"
          download-size="0"
          install-size="0"
          version="0.0.0"

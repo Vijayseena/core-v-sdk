@@ -45,11 +45,12 @@ import org.eclipse.cdt.dsf.gdb.IGdbDebugPreferenceConstants;
 import org.eclipse.cdt.dsf.gdb.actions.IConnect;
 import org.eclipse.cdt.dsf.gdb.internal.GdbPlugin;
 import org.eclipse.cdt.dsf.gdb.service.IGDBBackend;
+import org.eclipse.cdt.dsf.gdb.service.IGDBProcesses;
 import org.eclipse.cdt.dsf.gdb.service.IGDBSourceLookup;
 import org.eclipse.cdt.dsf.gdb.service.SessionType;
 import org.eclipse.cdt.dsf.gdb.service.command.IGDBControl;
 import org.eclipse.cdt.dsf.mi.service.CSourceLookup;
-import org.eclipse.cdt.dsf.mi.service.IMIProcesses;
+import org.eclipse.cdt.dsf.mi.service.MIProcesses;
 import org.eclipse.cdt.dsf.mi.service.command.CommandFactory;
 import org.eclipse.cdt.dsf.mi.service.command.output.MIGDBVersionInfo;
 import org.eclipse.cdt.dsf.mi.service.command.output.MIInfo;
@@ -74,7 +75,7 @@ public class FinalLaunchSequence extends ReflectionSequence {
 
 	private IGDBControl fCommandControl;
 	private IGDBBackend fGDBBackend;
-	private IMIProcesses fProcService;
+	private IGDBProcesses fProcService;
 	private CommandFactory fCommandFactory;
 
 	private DsfServicesTracker fTracker;
@@ -133,12 +134,14 @@ public class FinalLaunchSequence extends ReflectionSequence {
 					//
 					// "stepSetSourceLookupPath",   //$NON-NLS-1$
 
-					// For remote-attach launch only
+					// For remote-attach launch only (deprecated, see javadocs)
 					"stepRemoteConnection", //$NON-NLS-1$
 					// For all launches except attach ones
 					"stepNewProcess", //$NON-NLS-1$
-					// For local attach launch only
+					// For all attach launch only
 					"stepAttachToProcess", //$NON-NLS-1$
+					// For remote attach launch only (deprecated, see javadocs)
+					"stepAttachRemoteToDebugger", //$NON-NLS-1$
 					// Global
 					"stepDataModelInitializationComplete", //$NON-NLS-1$
 					"stepCleanup", //$NON-NLS-1$
@@ -173,7 +176,7 @@ public class FinalLaunchSequence extends ReflectionSequence {
 
 		fCommandFactory = fCommandControl.getCommandFactory();
 
-		fProcService = fTracker.getService(IMIProcesses.class);
+		fProcService = fTracker.getService(IGDBProcesses.class);
 		if (fProcService == null) {
 			requestMonitor.setStatus(
 					new Status(IStatus.ERROR, GdbPlugin.PLUGIN_ID, -1, "Cannot obtain process service", null)); //$NON-NLS-1$
@@ -547,13 +550,17 @@ public class FinalLaunchSequence extends ReflectionSequence {
 		rm.done();
 	}
 
+	@Deprecated(forRemoval = true)
 	private static final String INVALID = "invalid"; //$NON-NLS-1$
 
 	/**
 	 * If we are dealing with a remote-attach debugging session, connect to the target.
 	 * @since 4.0
+	 *
+	 * When removing, revive/uncomment code in implementations of IGDBProcesses.attachDebuggerToProcess()
 	 */
 	@Execute
+	@Deprecated(forRemoval = true)
 	public void stepRemoteConnection(final RequestMonitor rm) {
 		if (fGDBBackend.getSessionType() == SessionType.REMOTE && fGDBBackend.getIsAttachSession()) {
 			boolean isTcpConnection = CDebugUtils.getAttribute(fAttributes,
@@ -588,19 +595,9 @@ public class FinalLaunchSequence extends ReflectionSequence {
 	@Execute
 	public void stepNewProcess(final RequestMonitor rm) {
 		if (!fGDBBackend.getIsAttachSession()) {
-			boolean noBinarySpecified = CDebugUtils.getAttribute(fAttributes,
-					IGDBLaunchConfigurationConstants.ATTR_DEBUGGER_USE_SOLIB_SYMBOLS_FOR_APP,
-					IGDBLaunchConfigurationConstants.DEBUGGER_USE_SOLIB_SYMBOLS_FOR_APP_DEFAULT);
-
-			String binary = null;
-			final IPath execPath = fGDBBackend.getProgramPath();
-			if (!noBinarySpecified && execPath != null && !execPath.isEmpty()) {
-				binary = execPath.toString();
-			}
-
 			// Even if binary is null, we must call this to do all the other steps
 			// necessary to create a process.  It is possible that the binary is not needed
-			fProcService.debugNewProcess(fCommandControl.getContext(), binary, fAttributes,
+			fProcService.debugNewProcess(fCommandControl.getContext(), getBinary(), fAttributes,
 					new DataRequestMonitor<IDMContext>(getExecutor(), rm) {
 						@Override
 						protected void handleCancel() {
@@ -618,14 +615,28 @@ public class FinalLaunchSequence extends ReflectionSequence {
 	}
 
 	/**
-	 * If we are dealing with an local attach session, perform the attach.
-	 * For a remote attach session, we don't attach during the launch; instead
-	 * we wait for the user to manually do the attach.
+	 * @since 7.1
+	 */
+	protected String getBinary() {
+		boolean noBinarySpecified = CDebugUtils.getAttribute(fAttributes,
+				IGDBLaunchConfigurationConstants.ATTR_DEBUGGER_USE_SOLIB_SYMBOLS_FOR_APP,
+				IGDBLaunchConfigurationConstants.DEBUGGER_USE_SOLIB_SYMBOLS_FOR_APP_DEFAULT);
+
+		String binary = null;
+		final IPath execPath = fGDBBackend.getProgramPath();
+		if (!noBinarySpecified && execPath != null && !execPath.isEmpty()) {
+			binary = execPath.toString();
+		}
+		return binary;
+	}
+
+	/**
+	 * If we are dealing with an attach session, perform the attach.
 	 * @since 4.0
 	 */
 	@Execute
 	public void stepAttachToProcess(final RequestMonitor requestMonitor) {
-		if (fGDBBackend.getIsAttachSession() && fGDBBackend.getSessionType() != SessionType.REMOTE) {
+		if (fGDBBackend.getIsAttachSession()) {
 			// Is the process id already stored in the launch?
 			int pid = CDebugUtils.getAttribute(fAttributes, ICDTLaunchConfigurationConstants.ATTR_ATTACH_PROCESS_ID,
 					-1);
@@ -634,6 +645,10 @@ public class FinalLaunchSequence extends ReflectionSequence {
 				fProcService.attachDebuggerToProcess(
 						fProcService.createProcessContext(fCommandControl.getContext(), Integer.toString(pid)),
 						new DataRequestMonitor<IDMContext>(getExecutor(), requestMonitor));
+			} else if (fGDBBackend.getSessionType() == SessionType.REMOTE) {
+				// Inline following and remove requestMonitor.done() once FinalLaunchSequence.stepAttachRemoteToDebugger() is removed
+				// stepAttachRemoteToDebugger(requestMonitor);
+				requestMonitor.done();
 			} else {
 				IConnectHandler connectCommand = (IConnectHandler) fSession.getModelAdapter(IConnectHandler.class);
 				if (connectCommand instanceof IConnect) {
@@ -642,6 +657,25 @@ public class FinalLaunchSequence extends ReflectionSequence {
 					requestMonitor.done();
 				}
 			}
+		} else {
+			requestMonitor.done();
+		}
+	}
+
+	/**
+	 * If we are dealing with an remote attach session, perform the attach to debugger.
+	 * Bug 528145
+	 * @since 6.6
+	 *
+	 * When removing, revive/uncomment code in implementations in FinalLaunchSequence.stepAttachToProcess(RequestMonitor)
+	 */
+	@Deprecated(forRemoval = true)
+	@Execute
+	public void stepAttachRemoteToDebugger(final RequestMonitor requestMonitor) {
+		if (fGDBBackend.getIsAttachSession() && fGDBBackend.getSessionType() == SessionType.REMOTE) {
+			fProcService.attachDebuggerToProcess(
+					fProcService.createProcessContext(fCommandControl.getContext(), MIProcesses.UNKNOWN_PROCESS_ID),
+					getBinary(), new DataRequestMonitor<IDMContext>(getExecutor(), requestMonitor));
 		} else {
 			requestMonitor.done();
 		}

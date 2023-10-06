@@ -179,7 +179,11 @@ public class GdbDebugServicesFactory extends AbstractDsfDebugServicesFactory {
 			return (V) createBreakpointsSynchronizerService(session);
 		} else if (IGDBFocusSynchronizer.class.isAssignableFrom(clazz)) {
 			return (V) createFocusSynchronizerService(session);
+			//<CUSTOMISATION - OpenHW Group> - gitlab#951
+		} else if (ICommandCacheDelegateOnProcessCtx.class.isAssignableFrom(clazz)) {
+			return (V) new CommandCacheDelegateOnProcessCtx(session);
 		}
+		//<CUSTOMISATION - OpenHW Group>
 
 		return super.createService(clazz, session, optionalArguments);
 	}

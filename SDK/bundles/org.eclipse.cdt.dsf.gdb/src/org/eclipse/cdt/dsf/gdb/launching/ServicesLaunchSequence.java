@@ -34,6 +34,7 @@ import org.eclipse.cdt.dsf.debug.service.ISourceLookup.ISourceLookupDMContext;
 import org.eclipse.cdt.dsf.debug.service.IStack;
 import org.eclipse.cdt.dsf.debug.service.command.ICommandControlService;
 import org.eclipse.cdt.dsf.gdb.internal.service.IGDBFocusSynchronizer;
+import org.eclipse.cdt.dsf.gdb.service.ICommandCacheDelegateOnProcessCtx;
 import org.eclipse.cdt.dsf.gdb.service.IGDBHardwareAndOS;
 import org.eclipse.cdt.dsf.gdb.service.IGDBTraceControl;
 import org.eclipse.cdt.dsf.mi.service.CSourceLookup;
@@ -120,6 +121,15 @@ public class ServicesLaunchSequence extends Sequence {
 			// Create the low-level breakpoint service
 			fLaunch.getServiceFactory().createService(IBreakpoints.class, fSession).initialize(requestMonitor);
 		}
+		//<CUSTOMISATION - OpenHW Group> - gitlab#951
+	}, new Step() {
+		@Override
+		public void execute(final RequestMonitor requestMonitor) {
+			// Create the low-level breakpoint service
+			fLaunch.getServiceFactory().createService(ICommandCacheDelegateOnProcessCtx.class, fSession)
+					.initialize(requestMonitor);
+		}
+		//<CUSTOMISATION>
 	}, new Step() {
 		@Override
 		public void execute(final RequestMonitor requestMonitor) {
